@@ -6,6 +6,6 @@ public class Main {
 			System.out.println("must recive one argument, argument must be a file path");
 		}
 		Cat reader = new Cat();
-		reader.readFile(argv[0]);
+		reader.readFile("lvl1/ex04/Main.java");
 	}
 }

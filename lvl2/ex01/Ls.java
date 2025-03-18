@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Properties;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class Ls {
 
@@ -13,7 +16,7 @@ public class Ls {
 
     public Ls() {
         this.config = new Properties();
-        try (InputStream input = new FileInputStream("config.properties")) {
+        try (InputStream input = new FileInputStream("lvl2/ex01/config.properties")) {
             config.load(input);
         } catch (IOException e) {
             System.out.println(
@@ -43,9 +46,9 @@ public class Ls {
     public void listDirectoryRecursive() {
         try {
             File directory = new File(config.getProperty("directory.to.read"));
-            String directory = config.getProperty("output.file.path");
-            String fileName = config.getProperty("output.file.name")
-            File outFile = new File(directory,fileName);
+            String dirPath = config.getProperty("output.file.path");
+            String fileName = config.getProperty("output.file.name");
+            File outFile = new File(dirPath + fileName);
             FileWriter writer = new FileWriter(outFile);
             if (directory.isDirectory()) {
                 listRecursion(directory, 0, writer);

@@ -48,7 +48,7 @@ public class Ls {
 	}
 
 	private void formatPrint(File file, int level){
-		String indent = "	".repeat(level);
+		String indent = "----".repeat(level);
 		String type = file.isDirectory() ? "D" : "F";
 		String lastMod = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(file.lastModified()));
 		System.out.println(indent + file.getName() + " (" + type + ") " + lastMod);
